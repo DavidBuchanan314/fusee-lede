@@ -1,0 +1,17 @@
+--- a/drivers/usb/host/ehci-hcd.c
++++ b/drivers/usb/host/ehci-hcd.c
+@@ -859,14 +859,6 @@
+ 	INIT_LIST_HEAD (&qtd_list);
+ 
+ 	switch (usb_pipetype (urb->pipe)) {
+-	case PIPE_CONTROL:
+-		/* qh_completions() code doesn't handle all the fault cases
+-		 * in multi-TD control transfers.  Even 1KB is rare anyway.
+-		 */
+-		if (urb->transfer_buffer_length > (16 * 1024))
+-			return -EMSGSIZE;
+-		/* FALLTHROUGH */
+-	/* case PIPE_BULK: */
+ 	default:
+ 		if (!qh_urb_transaction (ehci, urb, &qtd_list, mem_flags))
+ 			return -ENOMEM;
