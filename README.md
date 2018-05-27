@@ -45,7 +45,7 @@ When in the configuration menu, you will need to set the following options:
 Target System            => MediaTek Ralink MIPS
 Subtarget                => RT3x5x/RT5350 based boards
 Target Profile           => A5-V11
-Utilities > fusee-nano   => <M>
+Utilities > fusee-nano   => <*>
 ```
 
 4. Compile!
